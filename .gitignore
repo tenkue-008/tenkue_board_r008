@@ -25,3 +25,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+.pryrc
+Gemfile
+Gemfile.lock
