@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'comments/index'
+  get 'comments/create'
+  get 'comments/edit'
+  get 'comments/update'
+  get 'comments/destroy'
   get 'likes/create'
   get 'likes/destroy'
   get 'posts/index'
