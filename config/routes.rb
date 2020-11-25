@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'likes/create'
+  get 'likes/destroy'
   get 'posts/index'
   get 'posts/new'
   get 'posts/show'
