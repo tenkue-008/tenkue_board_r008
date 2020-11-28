@@ -11,11 +11,11 @@ Rails.application.routes.draw do
   # get 'posts/show'
   # get 'posts/edit'
   # get 'posts/update'
+  root "posts#index"
   resources :posts do
     resources :likes, only:[:create, :destroy]
     resources :comments, except:[:new, :show]
-  end 
-  root "posts#index"
+  end
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     passwords: 'users/passwords'
