@@ -3,6 +3,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+group :development, :test do
+  gem 'hirb' # モデルの出力結果を表形式で表示するGem
+  gem 'hirb-unicode' # 日本語などマルチバイト文字の出力時の出力結果のずれに対応
+ 
+  gem 'pry-rails' # rails console(もしくは、rails c)でirbの代わりにpryを使われる
+  gem 'pry-doc' # methodを表示
+  gem 'pry-byebug' # デバッグを実施
+  gem "awesome_print" #色付きにインデントしてくれる
+ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
 # Use postgresql as the database for Active Record
@@ -65,3 +74,5 @@ gem 'font-awesome-sass'
 gem 'bootstrap-sass'
 gem 'data-confirm-modal'
 gem 'jquery-rails'
+gem 'rails-i18n', '~> 5.1'
+gem 'devise-i18n'

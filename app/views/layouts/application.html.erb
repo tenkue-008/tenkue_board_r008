@@ -11,8 +11,11 @@
   </head>
 
   <body>
-    <div class="wrapper">
-      <%= yield %>
-    </div>
+    <%= render partial: "/templates/header" %>
+    <%= render partial: "templates/notifications" %>
+      <div class="wrapper">
+        <%= yield %>
+      </div>
+    <%= render partial: "templates/footer" %>
   </body>
 </html>
