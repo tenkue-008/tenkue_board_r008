@@ -5,7 +5,7 @@
       <span><%= link_to "転クエ掲示板", "/posts" %></span>
     </h1>
     <%# ログイン状態に応じて表記を変更すること %>
-    <% if user_signed_in? %>  
+    <% if user_signed_in? %>
       <ul class="header__bar__user_nav">
         <li class="user_name">
           <span><%= current_user.name %> さん</span>
@@ -20,7 +20,7 @@
     <% else %>
       <ul class="header__bar__user_nav">
         <li class="header__bar__user_nav__btn">
-          ゲストログイン
+          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
         </li>
         <li class="header__bar__user_nav__btn">
           <%= link_to 'ログイン', new_user_session_path %>
