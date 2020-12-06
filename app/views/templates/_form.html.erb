@@ -3,6 +3,7 @@
         <span>新規投稿</span>
     </h3>
     <div class="form_area">
+        <%= render "templates/error_messages" %>
         <div class="form_area__field">
             <%= f.text_area :content, placeholder: "投稿内容を入力", rows: 10 %>
         </div>
