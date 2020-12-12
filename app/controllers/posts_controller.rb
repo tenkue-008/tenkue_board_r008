@@ -2,8 +2,8 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only:[:new]
 
   def index
+    @post = Post.all.order(params[:id])
   end
-
   def new
     @post = Post.new
   end
@@ -27,6 +27,11 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    if @post.user_id == current_user.id
+       @post.destroy
+       redirect_to action: :index
+    end
   end
 
   private
