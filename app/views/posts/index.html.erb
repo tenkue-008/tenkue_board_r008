@@ -12,8 +12,8 @@
         </li>
       <% end %>
       <% @post.each do |post| %>
-        <li>
-          <div class="post">
+        <div class="post">
+          <%= link_to "/posts/#{post.id}", class: "link" do %>          
             <div class="post__top_box">
               <div class="post__top_box__name">
                 <span>投稿者：<%= post.user.name %></span>
@@ -23,7 +23,7 @@
               </div>
             </div>  
             <div class="post__middle_box">
-              <span>投稿内容</span>
+              <span><%= post.content %></span>
             </div>
             <div class="post__bottom_box">
               <ul class="post__bottom_box__user_actions">
@@ -43,8 +43,8 @@
                 <% end %> 
               </ul>
             </div>
-          </div>
-        </li>
+          <% end %>
+        </div>
       <% end %>
     </ul>
   </div>
