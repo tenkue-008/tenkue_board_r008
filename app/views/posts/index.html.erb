@@ -37,10 +37,8 @@
                 </li>
               </ul>
               <ul class="post__bottom_box__admin_actions">
-                <% if user_signed_in? && current_user.id == post.user_id %>
-                  <li><%= link_to "編集", "posts/#{post.id}/edit" %></li>
-                  <li><%= link_to "削除", "posts/#{post.id}", data: {confirm: "削除してもよろしいですか？"}, method: :delete %></li>
-                <% end %> 
+                <li>編集</li>
+                <li><%= link_to "削除", "posts/#{post.id}", data: {confirm: "削除してもよろしいですか？"}, method: :delete %></li>
               </ul>
             </div>
           <% end %>
