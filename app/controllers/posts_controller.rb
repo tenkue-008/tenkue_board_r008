@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only:[:new]
+  before_action :authenticate_user!, only:[:new, :edit]
+  before_action :set_find, only:[:edit, :show, :destroy, :update]
 
   def index
     @post = Post.includes(:user).order(created_at: :DESC)
@@ -33,5 +34,8 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:content).merge(user_id: current_user.id)
+  end
+  def set_find
+    @post = Post.find(params[:id])
   end
 end
