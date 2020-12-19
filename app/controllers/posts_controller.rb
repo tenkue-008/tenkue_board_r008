@@ -3,7 +3,6 @@ class PostsController < ApplicationController
   before_action :set_find, only:[:edit, :show, :destroy, :update]
 
   def index
-    @post = Post.includes(:user).order(created_at: :DESC)
   end
 
   def new
