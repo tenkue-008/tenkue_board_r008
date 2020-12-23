@@ -24,6 +24,11 @@ class PostsController < ApplicationController
   end
 
   def update
+    if @post.update(post_params)
+      redirect_to action: :index
+    else
+      render action: :edit
+    end
   end
 
   def destroy
