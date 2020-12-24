@@ -35,7 +35,7 @@
           </ul>
           <div class="post_detail__bottom_box__admin_actions">
             <%= link_to "編集", "/posts/#{@post.id}/edit" %>
-            削除
+            <%= link_to "削除", "posts/#{post.id}", method: :delete, data:{ confirm: "削除しても宜しいですか？"} %>
           </div>
         </div>
       </div>

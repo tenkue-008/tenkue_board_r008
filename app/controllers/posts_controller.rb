@@ -32,6 +32,9 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    if @post.detroy
+      redirect to action: :index
+    end
   end
 
   private
