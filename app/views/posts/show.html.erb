@@ -13,14 +13,14 @@
       <div class="post_detail">
         <div class="post_detail__top_box">
           <div class="post_detail__top_box__name">
-            <span>投稿者：投稿者名</span>
+            <span>投稿者：<%= @post.user.name %></span>
           </div>
           <div class="post_detail__top_box__name">
-            <span>投稿日時：投稿日時</span>
+            <span>投稿日時：<%= l @post.created_at %></span>
           </div>
         </div>  
         <div class="post_detail__middle_box">
-          <span>投稿内容</span>
+          <span><%= @post.content %></span>
         </div>
         <div class="post_detail__bottom_box">
           <ul class="post_detail__bottom_box__user_actions">
@@ -33,10 +33,12 @@
               <span>いいね数</span>
             </li>
           </ul>
-          <div class="post_detail__bottom_box__admin_actions">
-            編集
-            削除
-          </div>
+          <% if user_signed_in? && @post.user_id == current_user.id %>
+            <div class="post_detail__bottom_box__admin_actions">
+              編集
+              削除
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
@@ -49,8 +51,10 @@
           </div>
           <div class="comment_area__list__comment__right_box">
             <div class="comment_area__list__comment__right_box__info">
-              <span>編集</span>
-              <span>削除</span>
+              <% if user_signed_in? && @post.user_id != current_user.id %>
+                <span>編集</span>
+                <span>削除</span>
+              <% end %>
               <span>投稿日時：投稿日時</span>
             </div>
             <div class="comment_area__list__comment__right_box__text">
